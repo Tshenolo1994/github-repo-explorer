@@ -25,7 +25,7 @@ export const lightTheme = {
   linkColor: "#7656FE",
   errorText: "#cf222e",
   errorBackground: "rgba(248, 81, 73, 0.05)",
-  emptyStateBackground: "rgba(246, 248, 250, 0.5)",
+  emptyStateBackground: "rgba(246, 248, 250, 0.5)", 
 };
 
 type Theme = typeof darkTheme;

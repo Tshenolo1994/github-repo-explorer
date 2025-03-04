@@ -1,5 +1,12 @@
 import React from "react";
-import { Pagination, Select, MenuItem, Box, Typography, useMediaQuery } from "@mui/material";
+import {
+  Pagination,
+  Select,
+  MenuItem,
+  Box,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
 import { useTheme } from "../../context/ThemeContext";
 
@@ -19,7 +26,7 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
   onPerPageChange,
 }) => {
   const { theme } = useTheme();
-  const isSmallScreen = useMediaQuery("(max-width: 600px)"); 
+  const isSmallScreen = useMediaQuery("(max-width: 600px)");
 
   const totalPages = Math.max(1, Math.ceil(totalCount / perPage));
 
@@ -31,10 +38,10 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
     <Box
       sx={{
         display: "flex",
-        flexDirection: isSmallScreen ? "column" : "row", 
+        flexDirection: isSmallScreen ? "column" : "row",
         justifyContent: "space-between",
         alignItems: "center",
-        gap: isSmallScreen ? 2 : 0, 
+        gap: isSmallScreen ? 2 : 0,
         mt: 4,
         backgroundColor: theme.surface,
         padding: 2,
@@ -45,7 +52,7 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: 1, 
+          gap: 1,
         }}
       >
         <Typography variant="body2" sx={{ color: theme.text }}>
@@ -61,7 +68,7 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
             backgroundColor: theme.buttonBg,
             color: theme.text,
             "& .MuiSelect-icon": { color: theme.text },
-            width: isSmallScreen ? "100%" : "auto", 
+            width: isSmallScreen ? "100%" : "auto",
           }}
           aria-label="Items per page"
         >
@@ -74,9 +81,9 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
       <Pagination
         count={totalPages}
         page={page}
-        onChange={(event, newPage) => onPageChange(newPage)}
+        onChange={(_, newPage) => onPageChange(newPage)}
         color="primary"
-        size={isSmallScreen ? "small" : "medium"} 
+        size={isSmallScreen ? "small" : "medium"}
         sx={{
           "& .MuiPaginationItem-root": {
             color: theme.text,
